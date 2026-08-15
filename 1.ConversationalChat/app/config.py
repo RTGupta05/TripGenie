@@ -53,7 +53,7 @@ OLLAMA_MAX_OUTPUT_TOKENS = int(
 # ---------------------------------------------------------
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql+psycopg2://postgres:Awesome1@localhost:5432/travel_planner",
+    "postgresql+psycopg2://postgres:password@localhost:5432/travel_planner",
 )
 
 # ---------------------------------------------------------
