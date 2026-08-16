@@ -199,7 +199,7 @@ class ChatApplication:
         answer = str(self.llm.invoke(prompt).content).strip()
         self._save_exchange(question, answer)
 
-        if self._get_message_count() >= SUMMARY_TRIGGER_MESSAGES:
+        if self._get_message_count() % SUMMARY_TRIGGER_MESSAGES == 0:
             self._create_summary()
 
         return answer
