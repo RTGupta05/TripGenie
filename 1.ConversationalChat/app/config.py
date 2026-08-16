@@ -66,7 +66,7 @@ DATABASE_URL = os.getenv(
 RECENT_MESSAGE_COUNT = int(
     os.getenv(
         "RECENT_MESSAGE_COUNT",
-        "4",
+        "6",
     )
 )
 # When the number of stored messages exceeds this amount,
@@ -74,7 +74,7 @@ RECENT_MESSAGE_COUNT = int(
 SUMMARY_TRIGGER_MESSAGES = int(
     os.getenv(
         "SUMMARY_TRIGGER_MESSAGES",
-        "6",
+        "12",
     )
 )
 # Approximate character budget for the summary.
