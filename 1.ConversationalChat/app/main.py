@@ -1,15 +1,44 @@
+import argparse
+
+import sys
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 from .chat import ChatApplication
 
 
 def main():
 
-    chatbot = ChatApplication()
+    parser = argparse.ArgumentParser(
+        description="Personal Travel Planner"
+    )
 
-    print("=" * 40)
-    print("       This is you personal Travel Planner")
-    print("=" * 40)
+    parser.add_argument(
+        "--conversation-id",
+        help=(
+            "Existing conversation UUID to continue. "
+            "If omitted, a new conversation is created."
+        ),
+    )
+
+    args = parser.parse_args()
+
+    chatbot = ChatApplication(
+        conversation_id=args.conversation_id
+    )
+
+    print("=" * 50)
+    print("       Your Personal Travel Planner")
+    print("=" * 50)
+    print(
+        f"Conversation ID: {chatbot.get_conversation_id()}"
+    )
+    print()
     print("Type 'exit' to quit.")
-    print("Type 'clear' to reset conversation.\n")
+    print("Type 'clear' to reset this conversation.")
+    print()
 
     while True:
 
@@ -28,8 +57,11 @@ def main():
             break
 
         if question.lower() == "clear":
+
             chatbot.clear_history()
+
             print("Conversation cleared.\n")
+
             continue
 
         try:

@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 
-from .config import (
+from config import (
     OLLAMA_MODEL,
     OLLAMA_BASE_URL,
     TEMPERATURE,

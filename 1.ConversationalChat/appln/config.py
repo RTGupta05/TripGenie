@@ -1,4 +1,14 @@
 import os
+
+from pathlib import Path
+import sys
+
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -96,3 +106,7 @@ MAX_PROMPT_CHARS = int(
         "24000",
     )
 )
+
+# Authentication sessions
+SESSION_TTL_HOURS = int(os.getenv("SESSION_TTL_HOURS", "24"))
+SESSION_COOKIE_NAME = os.getenv("SESSION_COOKIE_NAME", "travel_planner_session")

@@ -1,3 +1,14 @@
 langchain>=1.0
 langchain-ollama>=1.0
 python-dotenv>=1.0
+
+# ============================
+# PostgreSQL
+# ============================
+
+sqlalchemy>=2.0.43
+psycopg2-binary>=2.9.10
+pgvector>=0.4.1
+
+argon2-cffi>=25,<26
+gradio>=6.5,<7
